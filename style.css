@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#main-section {
+    margin: auto;
+    padding: 5px;
+    width: 300px;
+    height: 500px;
+    background-color: lightgreen;
+}
+#soundList {
+    margin: auto;
+    width: 98%;
+    height: 400px;
+    background-color: blanchedalmond;
+}
+#control {
+    margin: auto;
+    padding-top: 20px;
+}
+#prev {
+    margin-left: 80px;
+    border-radius: 50% 0 0 50%;
+}
+#play {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+#next {
+    border-radius: 0  50% 50% 0 ;
+}
+.tag, .curen-tag {
+    width: 99%;
+    margin: 2px 0;
+    border: 1px solid black;
+}
+.curen-tag {
+    border: 1px solid red;
+    background-color: blueviolet;
+}
+button{
+    transition: 0.3ms;
+}
+button:hover {
+    background-color: cornflowerblue;
+}
+
+
