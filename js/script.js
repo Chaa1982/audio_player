@@ -5,27 +5,26 @@ const playBtn = document.querySelector("#play");
 const nextBtn = document.querySelector("#next");
 
 function renderListSound(arr) {
-    
-    for(let el of arr){
-      soundList.innerHTML = "";
-      arr.forEach((el, i) => {
-        soundList.innerHTML += `<div class="${i !== curentTracksIndex ? "tag" : "curen-tag"}">${arr[i]}</div>`
-      })  
-    }
-    
+  for(let el of arr){
+    soundList.innerHTML = "";
+    arr.forEach((el, i) => {
+      soundList.innerHTML += `<div class="${i !== curentTracksIndex ? "tag" : "curen-tag"}">${Object.keys(arr[i])[0] }</div>`
+    })  
+  }
+  return this;
 }
 
 const soundArr = [
-  "./sound/Andro.mp3",
-  "./sound/HappyNewYear.mp3",
-  "./sound/JingleBells.mp3",
-  "./sound/Man.mp3",
-  "./sound/RumPumPum.mp3",
-  "./sound/Smile.mp3"
+  {Andro: "./sound/Andro.mp3"},
+  {"Happy New Year": "./sound/HappyNewYear.mp3"},
+  {"Jingle Bells": "./sound/JingleBells.mp3"},
+  {Man: "./sound/Man.mp3"},
+  {"Rum Pum Pum": "./sound/RumPumPum.mp3"},
+  {Smile: "./sound/Smile.mp3"},
 ];
 let curentTracksIndex = 0;
-audioElement.src = soundArr[curentTracksIndex];
-renderListSound(soundArr)
+audioElement.src = Object.values(soundArr[curentTracksIndex]) ;
+renderListSound(soundArr);
 
 
 playBtn.onclick = (e) => {
@@ -39,11 +38,11 @@ prevBtn.onclick = () => {
   curentTracksIndex--;
   if (soundArr[curentTracksIndex]) {
     renderListSound(soundArr);
-    audioElement.src = soundArr[curentTracksIndex];
+    audioElement.src = Object.values(soundArr[curentTracksIndex]);
   } else {
-    curentTracksIndex = soundArr.length -1;
+    curentTracksIndex =  soundArr.length-1;
     renderListSound(soundArr);
-    audioElement.src = soundArr.at(-1);
+    audioElement.src = Object.values(soundArr[curentTracksIndex]);
     
   }
   audioElement.play();
@@ -54,17 +53,13 @@ nextBtn.onclick = () => {
     curentTracksIndex++;
     if (soundArr[curentTracksIndex]) {
       renderListSound(soundArr);  
-      audioElement.src = soundArr[curentTracksIndex];
+      audioElement.src = Object.values(soundArr[curentTracksIndex]);
     } else {
       curentTracksIndex = 0; 
       renderListSound(soundArr); 
-      audioElement.src = soundArr[0];
+      audioElement.src = Object.values(soundArr[curentTracksIndex]);
     }
 audioElement.play();
 };
-
-
-
-
 
 console.log(audioElement, "ELEMENT")
